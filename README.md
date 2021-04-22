@@ -31,7 +31,7 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
 
 - [Install git lfs](https://git-lfs.github.com/)
 
-###For Windows 10
+### For Windows 10
  
 - [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
 
@@ -41,23 +41,23 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
         For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
         Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
         
-  -- Copy and paste the following commands in a Powershell(Admin) window:
+  * Copy and paste the following commands in a Powershell(Admin) window:
   
       dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
       dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
       
-  -- Download the Linux Kernel Update Package and run the downloaded file. The installation is pretty straightforward:
+  * Download the [WSL Linux Kernel Update Package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and run the downloaded file. The installation is pretty straightforward:
   
-   [WSL2 Linux kernel update package for x64 machines](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-
-  -- Change default version to WSL2. Copy and paste the following command in a Powershell(Admin) window:
+  * Change default version to WSL2. Copy and paste the following command in a Powershell(Admin) window:
   
       wsl --set-default-version 2
+      
+  * Restart your system
      
 *Note*: You can refer the following [link](https://docs.microsoft.com/en-us/windows/wsl/install-win10) if you face any issues.
 
-####Open a git bash for the following steps
+#### Open a git bash for the following steps
 - Clone the repo.Paste the following commands in the terminal:
       
       git lfs install --skip-smudge

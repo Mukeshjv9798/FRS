@@ -29,36 +29,32 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
 
 - [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-- [Install git lfs](https://git-lfs.github.com/)
-
 ### For Windows 10
  
-- [Install Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Download and Install Docker Desktop](https://www.docker.com/products/docker-desktop)
 
+#### Open a Powershell(Admin) for the following steps
 - Update to WSL2.
 *Note*: To update to WSL 2, you must be running Windows 10.
-        For x64 systems: Version 1903 or higher, with Build 18362 or higher.
-        For ARM64 systems: Version 2004 or higher, with Build 19041 or higher.
-        Builds lower than 18362 do not support WSL 2. Use the Windows Update Assistant to update your version of Windows.
         
   * Copy and paste the following commands in a Powershell(Admin) window:
   
-      dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+        dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
-      dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+        dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
       
-  * Download the [WSL Linux Kernel Update Package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and run the downloaded file. The installation is pretty straightforward:
+  * Download the [WSL Linux Kernel Update Package](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) and run the downloaded file. The installation is pretty straightforward.
   
   * Change default version to WSL2. Copy and paste the following command in a Powershell(Admin) window:
   
-      wsl --set-default-version 2
+        wsl --set-default-version 2
       
-  * Restart your system
+  * Restart your machine
      
-*Note*: You can refer the following [link](https://docs.microsoft.com/en-us/windows/wsl/install-win10) if you face any issues.
+*Note*: You can refer the following [link](https://docs.microsoft.com/en-us/windows/wsl/install-win10) if you face any issues in the above step.
 
 #### Open a git bash for the following steps
-- Clone the repo.Paste the following commands in the terminal:
+- Clone the repo. Paste the following commands in the terminal:
       
       git lfs install --skip-smudge
       
@@ -74,19 +70,35 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
 
 #### Open a Poweshell(admin) for the following steps
 
+- cd into the FRS directory
+
 - Spin up the containers using docker-compose
 
-      docker-compose up
+      docker compose up
+      
+     This step takes some time. When the containers are ready you can see the following in the log:
+     
+     ![app](images/app.png)
+     
+   *Note*: If you face any errors in this step, consider restarting Docker. Paste the following command in your terminal to restart docker:
 
-- Open the application in the browser at the following url:
+      restart-service *docker*
+      
+    [Optional]You can also use the following command to run the containers in detached mode.
+        
+      docker compose up -d
+
+- Open the application in browser at the following url:
 
       localhost:5000
 
-- Close the application. Paste the following command in the powershell window.
+- Close the application - You can use ctrl+c to stop the application. 
 
-      docker-compose down
+     Paste the following command in terminal to remove the containers.
+
+      docker compose down
  
- For Linux-based OS
+ ### For Linux-based OS
  
 - [Install Docker Engine](https://docs.docker.com/engine/install/)
 
@@ -96,6 +108,8 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
   
 - Clone the repo
   
+        git lfs install --skip-smudge
+        
         git clone https://github.com/mukeshjv/FRS
 
 - Move to working directory
@@ -110,8 +124,23 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
 
         sudo docker-compose up
 
+     This step takes some time. When the containers are ready you can see the following in the log:
+     
+     ![app](images/app.png)
+     
+     
+     [Optional]You can also use the following command to run the containers in detached mode.
+        
+       sudo docker-compose up -d
+       
 - Open the application in the browser at the following url:
 
         localhost:5000
 
+- Close the application - You can use ctrl+c to stop the application. 
+
+   Paste the following command in your terminal to remove the containers.
+
+      sudo docker-compose down
+      
 *Note*: Images for the suggested recipes are fetched using the Google Search API. The currently used free version serves only 100 requests per day.
